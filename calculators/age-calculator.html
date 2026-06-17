@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Age Calculator UK | Exact Age Instantly</title>
+
+<meta name="description" content="Free UK Age Calculator. Instantly calculate your exact age in years, months, and days. Fast, accurate and mobile friendly.">
+
+<link rel="stylesheet" href="/style.css">
+
+</head>
+
+<body>
+<header class="topbar">
+    <div class="container topbar-inner">
+
+        <a class="brand" href="/index.html">
+            UK Calc Hub
+        </a>
+
+        <nav class="top-nav">
+            <a href="/index.html">Home</a>
+            <a href="/calculators/vat-calculator.html">VAT</a>
+            <a href="/calculators/bmi-calculator.html">BMI</a>
+            <a href="/calculators/loan-calculator.html">Loan</a>
+            <a href="/calculators/age-calculator.html">Age</a>
+                                    <a href="/calculators/mortgage.html">Mortgage</a>
+
+            <a href="/calculators/percentage-calculator.html">Percent</a>
+        </nav>
+
+        <a class="cta" href="/index.html#tools">
+            All Tools
+        </a>
+
+    </div>
+</header>
+
+
+
+<main class="container">
+
+<!-- HERO -->
+<section class="page-header fade-in">
+    <h1>Age Calculator</h1>
+    <p>Get your exact age in years, months, and days instantly with live updates</p>
+</section>
+
+<!-- CALCULATOR -->
+<section class="card calculator slide-up">
+
+    <div class="field-group">
+        <label for="dob">Date of Birth</label>
+        <input id="dob" type="date" oninput="calcAgeLive()">
+    </div>
+
+    <div class="button-row">
+        <button onclick="calcAge()">Calculate</button>
+        <button class="secondary" onclick="resetCalc()">Reset</button>
+        <button class="ghost" onclick="copyResult()">Copy Result</button>
+    </div>
+
+    <!-- RESULT -->
+    <div class="result-box glow">
+        <h3>Your Exact Age</h3>
+        <div id="ageResult" class="big">0 years</div>
+        <p class="result-subtext">Years • Months • Days</p>
+    </div>
+
+    <!-- LIVE STATUS -->
+    <p id="status" class="status-text"></p>
+
+</section>
+
+<!-- DESCRIPTION -->
+<section class="seo-block fade-in">
+
+    <h2>How This Calculator Works</h2>
+
+    <p>
+        This tool calculates your exact age by comparing your date of birth with today's date.
+        It dynamically adjusts for months and days to ensure precise results.
+    </p>
+
+    <p>
+        It is widely used in the UK for job applications, legal forms, insurance documents,
+        and official identity verification.
+    </p>
+
+    <p>
+        Unlike basic calculators, this version updates instantly as you type and provides
+        a smooth interactive experience similar to modern SaaS applications.
+    </p>
+
+</section>
+
+</main>
+
+
+
+<script>
+function calcAge(){
+
+    const dob = document.getElementById("dob").value;
+    const result = document.getElementById("ageResult");
+    const status = document.getElementById("status");
+
+    if(!dob){
+        result.innerText = "0 years";
+        status.innerText = "Please select your date of birth";
+        return;
+    }
+
+    const birth = new Date(dob);
+    const today = new Date();
+
+    let years = today.getFullYear() - birth.getFullYear();
+    let months = today.getMonth() - birth.getMonth();
+    let days = today.getDate() - birth.getDate();
+
+    if(days < 0){
+        months--;
+        days += 30;
+    }
+
+    if(months < 0){
+        years--;
+        months += 12;
+    }
+
+    result.innerText = `${years} years, ${months} months, ${days} days`;
+    status.innerText = "Calculated successfully ✓";
+}
+
+function calcAgeLive(){
+    calcAge();
+}
+
+function resetCalc(){
+    document.getElementById("dob").value = "";
+    document.getElementById("ageResult").innerText = "0 years";
+    document.getElementById("status").innerText = "";
+}
+
+function copyResult(){
+    const text = document.getElementById("ageResult").innerText;
+    navigator.clipboard.writeText(text);
+    document.getElementById("status").innerText = "Copied to clipboard ✓";
+}
+</script>
+
+
+
+
+<!-- FOOTER -->
+<footer class="footer">
+
+    <div class="container footer-grid">
+
+        <div>
+            <h3>UK Calc Hub</h3>
+            <p>Free UK calculator tools for finance, health, and everyday use.</p>
+        </div>
+
+        <div>
+            <h4>Calculators</h4>
+            <a href="/calculators/vat-calculator.html">VAT Calculator</a>
+            <a href="/calculators/bmi-calculator.html">BMI Calculator</a>
+            <a href="/calculators/loan-calculator.html">Loan Calculator</a>
+            <a href="/calculators/age-calculator.html">Age Calculator</a>
+        </div>
+
+        <div>
+            <h4>Company</h4>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 UK Calc Hub — All rights reserved
+    </div>
+
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mortgage Calculator UK | Monthly Payments & Interest Tool</title>
+
+<meta name="description" content="Free UK mortgage calculator. Estimate monthly repayments, total interest, and full mortgage cost instantly. Works for home loans, house finance, and UK property planning. Fast, accurate, mobile-friendly.">
+
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#2563eb">
+<link rel="stylesheet" href="/style.css">
+
+<style>
+/* =========================
+   GLOBAL STYLE
+========================= */
+
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#f5f7fb;
+    animation:fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(10px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    background:#0f172a;
+    color:white;
+    padding:15px 20px;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+header a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* =========================
+   PAGE TITLE
+========================= */
+
+h1{
+    margin-top:25px;
+    animation:slide 0.6s ease;
+}
+
+@keyframes slide{
+    from{opacity:0; transform:translateX(-20px);}
+    to{opacity:1; transform:translateX(0);}
+}
+
+.subtitle{
+    color:#6b7280;
+    margin-bottom:20px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:16px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    transition:0.3s;
+    margin-top:20px;
+    animation:fadeUp 0.6s ease;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+}
+
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+input{
+    width:100%;
+    padding:14px;
+    margin:10px 0;
+    border-radius:10px;
+    border:1px solid #e5e7eb;
+    font-size:15px;
+    transition:0.3s;
+}
+
+input:focus{
+    outline:none;
+    border-color:#2563eb;
+    box-shadow:0 0 10px rgba(37,99,235,0.2);
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    background:#2563eb;
+    color:white;
+    border-radius:10px;
+    font-size:15px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#1d4ed8;
+    transform:translateY(-2px);
+}
+
+/* =========================
+   RESULT BOX
+========================= */
+
+.result{
+    margin-top:15px;
+    padding:15px;
+    background:#f8fafc;
+    border-radius:12px;
+}
+
+.big{
+    font-size:1.6rem;
+    font-weight:bold;
+    color:#2563eb;
+}
+
+/* pulse animation */
+.pulse{
+    animation:pulse 0.3s ease;
+}
+
+@keyframes pulse{
+    0%{transform:scale(0.95);}
+    50%{transform:scale(1.05);}
+    100%{transform:scale(1);}
+}
+
+/* =========================
+   SEO SECTION
+========================= */
+
+.seo{
+    margin-top:40px;
+    padding:20px;
+    color:#374151;
+}
+
+.seo h2{
+    color:#111827;
+}
+
+footer{
+    margin-top:50px;
+    padding:20px;
+    background:#0f172a;
+    color:white;
+    text-align:center;
+}
+</style>
+
+</head>
+
+<body>
+<header class="topbar">
+    <div class="container topbar-inner">
+
+        <a class="brand" href="/index.html">
+            UK Calc Hub
+        </a>
+
+        <nav class="top-nav">
+            <a href="/index.html">Home</a>
+            <a href="/calculators/vat-calculator.html">VAT</a>
+            <a href="/calculators/bmi-calculator.html">BMI</a>
+            <a href="/calculators/loan-calculator.html">Loan</a>
+            <a href="/calculators/age-calculator.html">Age</a>
+            <a href="/calculators/percentage-calculator.html">Percent</a>
+        </nav>
+
+        <a class="cta" href="/index.html#tools">
+            All Tools
+        </a>
+
+    </div>
+</header>
+<header>
+    <div class="container">
+        <a href="index.html">← UK Calc Hub</a>
+    </div>
+</header>
+
+<main class="container">
+
+    <h1>Mortgage Calculator UK</h1>
+
+    <p class="subtitle">
+        Calculate your monthly mortgage repayments, total repayment cost, and interest over time.
+        Perfect for UK home buyers, property investors, and financial planning.
+    </p>
+
+    <div class="card">
+
+        <input id="amount" type="number" placeholder="Property / Mortgage Amount (£)">
+        <input id="rate" type="number" placeholder="Interest Rate (%)">
+        <input id="years" type="number" placeholder="Mortgage Term (Years)">
+
+        <button onclick="calcMortgage()">Calculate Mortgage</button>
+
+        <div class="result">
+            <p>Monthly Payment</p>
+            <div id="monthly" class="big">£0</div>
+        </div>
+
+        <div class="result">
+            <p>Total Repayment</p>
+            <div id="total" class="big">£0</div>
+        </div>
+
+        <div class="result">
+            <p>Total Interest</p>
+            <div id="interest" class="big">£0</div>
+        </div>
+
+    </div>
+
+    <!-- SEO CONTENT -->
+    <section class="seo">
+
+        <h2>About This Mortgage Calculator</h2>
+
+        <p>
+            This UK Mortgage Calculator helps you estimate how much your home loan will cost over time.
+            It uses standard amortization formulas used by UK banks and lenders.
+        </p>
+
+        <p>
+            You can calculate monthly repayments, total loan cost, and interest paid over the full term.
+            This tool is ideal for first-time buyers, property investors, and financial planning.
+        </p>
+
+        <p>
+            No signup required. Fast, mobile-friendly, and optimized for UK users.
+        </p>
+
+    </section>
+
+</main>
+
+
+
+<script>
+function calcMortgage(){
+
+    const P = parseFloat(document.getElementById("amount").value);
+    const R = parseFloat(document.getElementById("rate").value) / 100 / 12;
+    const N = parseFloat(document.getElementById("years").value) * 12;
+
+    const monthlyEl = document.getElementById("monthly");
+    const totalEl = document.getElementById("total");
+    const interestEl = document.getElementById("interest");
+
+    if(!P || !R || !N){
+        monthlyEl.innerText = "£0";
+        totalEl.innerText = "£0";
+        interestEl.innerText = "£0";
+        return;
+    }
+
+    const monthly = (P * R) / (1 - Math.pow(1 + R, -N));
+    const total = monthly * N;
+    const interest = total - P;
+
+    [monthlyEl, totalEl, interestEl].forEach(el=>{
+        el.classList.remove("pulse");
+        void el.offsetWidth;
+        el.classList.add("pulse");
+    });
+
+    monthlyEl.innerText = "£" + monthly.toFixed(2);
+    totalEl.innerText = "£" + total.toFixed(2);
+    interestEl.innerText = "£" + interest.toFixed(2);
+}
+</script>
+<!-- FOOTER -->
+<footer class="footer">
+
+    <div class="container footer-grid">
+
+        <div>
+            <h3>UK Calc Hub</h3>
+            <p>Free UK calculator tools for finance, health, and everyday use.</p>
+        </div>
+
+        <div>
+            <h4>Calculators</h4>
+            <a href="/calculators/vat-calculator.html">VAT Calculator</a>
+            <a href="/calculators/bmi-calculator.html">BMI Calculator</a>
+            <a href="/calculators/loan-calculator.html">Loan Calculator</a>
+            <a href="/calculators/age-calculator.html">Age Calculator</a>
+        </div>
+
+        <div>
+            <h4>Company</h4>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 UK Calc Hub — All rights reserved
+    </div>
+
+</footer>
+
+
+</body>
+</html>

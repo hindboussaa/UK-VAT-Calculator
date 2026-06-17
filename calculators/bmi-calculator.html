@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BMI Calculator UK | Body Mass Index Tool</title>
+
+<meta name="description" content="Free BMI calculator UK. Instantly calculate your body mass index, check your health category, and understand whether you're underweight, normal, overweight or obese. Fast, accurate and mobile friendly.">
+
+<link rel="stylesheet" href="/style.css">
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f5f7fb;
+    margin:0;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(10px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* CARD */
+.card{
+    max-width:520px;
+    margin:40px auto;
+    background:white;
+    padding:25px;
+    border-radius:14px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.06);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+/* INPUTS */
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border-radius:10px;
+    border:1px solid #ddd;
+    transition:0.2s;
+}
+
+input:focus{
+    border-color:#2563eb;
+    outline:none;
+    box-shadow:0 0 8px rgba(37,99,235,0.2);
+}
+
+/* RESULT */
+.big{
+    font-size:2.4rem;
+    font-weight:bold;
+    color:#2563eb;
+    transition:0.3s;
+}
+
+/* pulse animation */
+.pulse{
+    animation:pulse 0.3s ease;
+}
+
+@keyframes pulse{
+    0%{transform:scale(0.9);}
+    100%{transform:scale(1);}
+}
+
+/* STATUS */
+.status{
+    margin-top:10px;
+    font-weight:bold;
+    padding:8px;
+    border-radius:8px;
+    display:inline-block;
+}
+
+/* COLORS */
+.low{background:#dbeafe;color:#1e3a8a;}
+.normal{background:#dcfce7;color:#166534;}
+.high{background:#fee2e2;color:#991b1b;}
+
+/* SEO SECTION */
+.seo{
+    max-width:700px;
+    margin:40px auto;
+    padding:0 20px;
+}
+
+.seo h2{
+    margin-bottom:10px;
+}
+
+.seo p{
+    line-height:1.6;
+    color:#444;
+}
+</style>
+
+</head>
+
+<body>
+<header class="topbar">
+    <div class="container topbar-inner">
+
+        <a class="brand" href="/index.html">
+            UK Calc Hub
+        </a>
+
+        <nav class="top-nav">
+            <a href="/index.html">Home</a>
+            <a href="/calculators/vat-calculator.html">VAT</a>
+            <a href="/calculators/bmi-calculator.html">BMI</a>
+            <a href="/calculators/loan-calculator.html">Loan</a>
+            <a href="/calculators/age-calculator.html">Age</a>
+                                    <a href="/calculators/mortgage.html">Mortgage</a>
+
+            <a href="/calculators/percentage-calculator.html">Percent</a>
+        </nav>
+
+        <a class="cta" href="/index.html#tools">
+            All Tools
+        </a>
+
+    </div>
+</header>
+
+<main>
+
+<!-- TITLE -->
+<div class="container">
+    <h1>BMI Calculator</h1>
+</div>
+
+<!-- CALCULATOR -->
+<div class="card">
+
+    <input id="height" type="number" placeholder="Height (cm)" oninput="calcBMI()">
+    <input id="weight" type="number" placeholder="Weight (kg)" oninput="calcBMI()">
+
+    <div class="result">
+        <h3>Your BMI</h3>
+        <div id="bmiResult" class="big">0</div>
+
+        <div id="status" class="status">Enter values</div>
+    </div>
+
+</div>
+
+<!-- SEO DESCRIPTION -->
+<section class="seo">
+
+    <h2>What is BMI?</h2>
+
+    <p>
+        BMI (Body Mass Index) is a measurement used to determine whether a person has a healthy body weight
+        based on their height and weight. It is widely used in the UK by healthcare professionals.
+    </p>
+
+    <p>
+        A BMI value helps identify whether you are underweight, normal weight, overweight, or obese.
+        This tool gives instant results so you can understand your health status quickly.
+    </p>
+
+</section>
+
+<script>
+function calcBMI(){
+
+    const h = parseFloat(document.getElementById("height").value);
+    const w = parseFloat(document.getElementById("weight").value);
+
+    const result = document.getElementById("bmiResult");
+    const status = document.getElementById("status");
+
+    if(!h || !w){
+        result.innerText = "0";
+        status.innerText = "Enter values";
+        status.className = "status";
+        return;
+    }
+
+    let bmi = w / ((h/100) * (h/100));
+    bmi = bmi.toFixed(1);
+
+    result.innerText = bmi;
+
+    // animation
+    result.classList.remove("pulse");
+    void result.offsetWidth;
+    result.classList.add("pulse");
+
+    // category
+    let msg = "";
+    let cls = "";
+
+    if(bmi < 18.5){
+        msg = "Underweight";
+        cls = "status low";
+    } 
+    else if(bmi < 25){
+        msg = "Normal weight";
+        cls = "status normal";
+    } 
+    else {
+        msg = "Overweight";
+        cls = "status high";
+    }
+
+    status.innerText = msg;
+    status.className = cls;
+}
+</script>
+<!-- FOOTER -->
+<footer class="footer">
+
+    <div class="container footer-grid">
+
+        <div>
+            <h3>UK Calc Hub</h3>
+            <p>Free UK calculator tools for finance, health, and everyday use.</p>
+        </div>
+
+        <div>
+            <h4>Calculators</h4>
+            <a href="/calculators/vat-calculator.html">VAT Calculator</a>
+            <a href="/calculators/bmi-calculator.html">BMI Calculator</a>
+            <a href="/calculators/loan-calculator.html">Loan Calculator</a>
+            <a href="/calculators/age-calculator.html">Age Calculator</a>
+        </div>
+
+        <div>
+            <h4>Company</h4>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 UK Calc Hub — All rights reserved
+    </div>
+
+</footer>
+
+</body>
+</html>

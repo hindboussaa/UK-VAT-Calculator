@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Loan Calculator UK | Monthly Repayments & Interest Tool</title>
+
+<meta name="description" content="Free UK loan calculator to estimate monthly repayments, total interest, and full loan cost. Works for personal loans, car finance, and mortgages. Fast, accurate, mobile friendly.">
+
+<link rel="stylesheet" href="/style.css">
+
+<style>
+
+/* =========================
+   GLOBAL
+========================= */
+
+body{
+    font-family: Arial, sans-serif;
+    background:#f5f7fb;
+    margin:0;
+    animation: fadePage 0.5s ease;
+}
+
+@keyframes fadePage{
+    from{opacity:0; transform:translateY(12px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
+
+/* =========================
+   HEADER BADGE
+========================= */
+
+.badge{
+    display:inline-block;
+    padding:6px 14px;
+    background:#2563eb;
+    color:#fff;
+    border-radius:20px;
+    font-size:12px;
+    animation: pop 0.4s ease;
+}
+
+@keyframes pop{
+    from{transform:scale(0.8); opacity:0;}
+    to{transform:scale(1); opacity:1;}
+}
+
+/* =========================
+   TITLE
+========================= */
+
+h1{
+    margin-top:10px;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn{
+    from{opacity:0; transform:translateX(-20px);}
+    to{opacity:1; transform:translateX(0);}
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.06);
+    margin-top:20px;
+    transition:0.3s;
+    animation: fadeUp 0.6s ease;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+}
+
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+input{
+    width:100%;
+    padding:14px;
+    margin:10px 0;
+    border-radius:12px;
+    border:1px solid #e5e7eb;
+    font-size:16px;
+    transition:0.3s;
+}
+
+input:focus{
+    border-color:#2563eb;
+    box-shadow:0 0 10px rgba(37,99,235,0.2);
+    outline:none;
+}
+
+/* =========================
+   RESULT BOX (IMPORTANT UX)
+========================= */
+
+.result-box{
+    margin-top:12px;
+    padding:18px;
+    background:linear-gradient(135deg,#f8fafc,#eef2ff);
+    border-radius:14px;
+    border:1px solid #e5e7eb;
+    transition:0.3s;
+}
+
+.result-title{
+    font-size:13px;
+    color:#555;
+}
+
+.big{
+    font-size:1.8rem;
+    font-weight:700;
+    color:#2563eb;
+}
+
+/* pulse animation when updating */
+.pulse{
+    animation:pulse 0.3s ease;
+}
+
+@keyframes pulse{
+    0%{transform:scale(0.95);}
+    50%{transform:scale(1.05);}
+    100%{transform:scale(1);}
+}
+
+/* =========================
+   SEO SECTION
+========================= */
+
+.seo{
+    max-width:850px;
+    margin:40px auto;
+    padding:20px;
+    animation: fadeUp 0.7s ease;
+}
+
+.seo h2{
+    margin-bottom:10px;
+}
+
+.seo p{
+    line-height:1.7;
+    color:#444;
+}
+
+/* =========================
+   DESCRIPTION BOX
+========================= */
+
+.description{
+    margin-top:10px;
+    color:#555;
+    line-height:1.6;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="topbar">
+    <div class="container topbar-inner">
+
+        <a class="brand" href="/index.html">
+            UK Calc Hub
+        </a>
+
+        <nav class="top-nav">
+            <a href="/index.html">Home</a>
+            <a href="/calculators/vat-calculator.html">VAT</a>
+            <a href="/calculators/bmi-calculator.html">BMI</a>
+            <a href="/calculators/loan-calculator.html">Loan</a>
+            <a href="/calculators/age-calculator.html">Age</a>
+                                    <a href="/calculators/mortgage.html">Mortgage</a>
+
+            <a href="/calculators/percentage-calculator.html">Percent</a>
+        </nav>
+
+        <a class="cta" href="/index.html#tools">
+            All Tools
+        </a>
+
+    </div>
+</header>
+
+<main class="container">
+
+    <span class="badge">UK Finance Tool</span>
+
+    <h1>Loan Calculator</h1>
+
+    <p class="description">
+        Instantly calculate monthly repayments, total interest, and full loan cost.
+        Works for personal loans, car finance, mortgages, and business loans in the UK.
+    </p>
+
+    <div class="card">
+
+        <input id="amount" type="number" placeholder="Loan Amount (£)" oninput="calcLoan()">
+        <input id="rate" type="number" placeholder="Interest Rate (%)" oninput="calcLoan()">
+        <input id="years" type="number" placeholder="Loan Term (Years)" oninput="calcLoan()">
+
+        <div class="result-box">
+            <div class="result-title">Monthly Payment</div>
+            <div id="monthly" class="big">£0.00</div>
+        </div>
+
+        <div class="result-box">
+            <div class="result-title">Total Repayment</div>
+            <div id="total" class="big">£0.00</div>
+        </div>
+
+        <div class="result-box">
+            <div class="result-title">Total Interest</div>
+            <div id="interest" class="big">£0.00</div>
+        </div>
+
+    </div>
+
+</main>
+
+<!-- SEO CONTENT -->
+<section class="seo">
+
+    <h2>How This Loan Calculator Works</h2>
+
+    <p>
+        This calculator uses a standard amortization formula used by UK banks and lenders.
+        It helps you understand how much you will pay each month and over the full loan term.
+    </p>
+
+    <p>
+        It is useful for comparing loans, planning budgets, and avoiding over-borrowing.
+        You can test different interest rates and loan durations instantly.
+    </p>
+
+</section>
+
+<script>
+function calcLoan(){
+
+    const P = parseFloat(document.getElementById("amount").value);
+    const annualRate = parseFloat(document.getElementById("rate").value);
+    const years = parseFloat(document.getElementById("years").value);
+
+    const monthlyEl = document.getElementById("monthly");
+    const totalEl = document.getElementById("total");
+    const interestEl = document.getElementById("interest");
+
+    if(!P || !annualRate || !years){
+        monthlyEl.innerText = "£0.00";
+        totalEl.innerText = "£0.00";
+        interestEl.innerText = "£0.00";
+        return;
+    }
+
+    const r = (annualRate / 100) / 12;
+    const n = years * 12;
+
+    const monthly = (P * r) / (1 - Math.pow(1 + r, -n));
+    const total = monthly * n;
+    const interest = total - P;
+
+    [monthlyEl, totalEl, interestEl].forEach(el=>{
+        el.classList.remove("pulse");
+        void el.offsetWidth;
+        el.classList.add("pulse");
+    });
+
+    monthlyEl.innerText = "£" + monthly.toFixed(2);
+    totalEl.innerText = "£" + total.toFixed(2);
+    interestEl.innerText = "£" + interest.toFixed(2);
+}
+</script>
+<!-- FOOTER -->
+<footer class="footer">
+
+    <div class="container footer-grid">
+
+        <div>
+            <h3>UK Calc Hub</h3>
+            <p>Free UK calculator tools for finance, health, and everyday use.</p>
+        </div>
+
+        <div>
+            <h4>Calculators</h4>
+            <a href="/calculators/vat-calculator.html">VAT Calculator</a>
+            <a href="/calculators/bmi-calculator.html">BMI Calculator</a>
+            <a href="/calculators/loan-calculator.html">Loan Calculator</a>
+            <a href="/calculators/age-calculator.html">Age Calculator</a>
+        </div>
+
+        <div>
+            <h4>Company</h4>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 UK Calc Hub — All rights reserved
+    </div>
+
+</footer>
+
+</body>
+</html>
