@@ -840,3 +840,28 @@ input:focus {
     50% { transform: scale(1.05); }
     100% { transform: scale(1); }
 }
+
+
+
+
+
+/* =========================
+   ADSENSE AD BOX
+========================= */
+
+.ad-slot {
+    width: 100%;
+    max-width: 900px;
+    margin: 25px auto;
+    padding: 10px;
+    text-align: center;
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    border-radius: 12px;
+}
+
+.ad-label {
+    font-size: 11px;
+    color: #64748b;
+    margin-bottom: 5px;
+}
