@@ -3,13 +3,70 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VAT Calculator UK | Calculate 20% VAT</title>
-<meta name="description" content="Free UK VAT calculator. Instantly calculate VAT at 20%.">
+
+<title>VAT Calculator UK (2026) | Add & Remove VAT Instantly</title>
+
+<meta name="description" content="Free UK VAT Calculator. Add or remove VAT instantly using the 20% UK VAT rate. Works for gross and net calculations. Fast, mobile-friendly and accurate.">
+
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://hindboussaa.github.io/UK-VAT-Calculator/calculators/vat-calculator.html">
+
 <link rel="stylesheet" href="../style.css">
+
+<meta property="og:title" content="VAT Calculator UK (2026)">
+<meta property="og:description" content="Instant UK VAT calculator. Add or remove VAT at 20% rate.">
+<meta property="og:type" content="website">
+
+<!-- SEO SCHEMA -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebApplication",
+ "name": "UK VAT Calculator",
+ "url": "https://hindboussaa.github.io/UK-VAT-Calculator/calculators/vat-calculator.html",
+ "applicationCategory": "FinanceApplication",
+ "operatingSystem": "All",
+ "description": "Calculate UK VAT instantly using standard 20% rate."
+}
+</script>
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"FAQPage",
+ "mainEntity":[
+  {
+   "@type":"Question",
+   "name":"How do I add VAT in the UK?",
+   "acceptedAnswer":{
+     "@type":"Answer",
+     "text":"Multiply the net price by 1.2 to add 20% VAT."
+   }
+  },
+  {
+   "@type":"Question",
+   "name":"How do I remove VAT from a price?",
+   "acceptedAnswer":{
+     "@type":"Answer",
+     "text":"Divide the gross price by 1.2 to get the net amount."
+   }
+  },
+  {
+   "@type":"Question",
+   "name":"What is the UK VAT rate?",
+   "acceptedAnswer":{
+     "@type":"Answer",
+     "text":"The standard UK VAT rate is 20%."
+   }
+  }
+ ]
+}
+</script>
+
 </head>
 
 <body>
-
 <header class="topbar">
     <div class="container topbar-inner">
 
@@ -39,30 +96,127 @@
     </div>
 </header>
 
-<main class="page">
-
+<!-- PAGE HEADER -->
+<section class="page-header">
 <div class="container">
 
-    <h1>VAT Calculator UK</h1>
-    <p>Enter amount to calculate 20% VAT instantly.</p>
+<h1>VAT Calculator UK</h1>
 
-    <div class="card">
+<p>
+Calculate UK VAT instantly. Add VAT to a net price or remove VAT from a gross price using the standard 20% UK rate.
+</p>
 
-        <input id="vatInput" type="number" placeholder="Enter amount (£)">
+</div>
+</section>
 
-        <div class="result">
-            <h3>Total with VAT</h3>
-            <div id="vatResult" class="big">0.00</div>
-        </div>
+<!-- CALCULATOR BOX -->
+<section class="calculator">
+<div class="container">
 
-    </div>
+<div class="calc-box">
+
+<h2>VAT Calculator</h2>
+
+<label>Enter Amount (£)</label>
+<input type="number" id="amount" placeholder="e.g. 100">
+
+<label>VAT Rate (%)</label>
+<input type="number" id="rate" value="20">
+
+<div class="buttons">
+<button onclick="addVAT()">Add VAT</button>
+<button onclick="removeVAT()">Remove VAT</button>
+</div>
+
+<div class="result">
+<p id="output">Result will appear here</p>
+</div>
 
 </div>
 
-</main>
+</div>
+</section>
 
-<script src="js/app.js"></script>
-<!-- FOOTER -->
+<!-- EXPLANATION SEO CONTENT -->
+<section class="content">
+<div class="container">
+
+<h2>How the VAT Calculator Works</h2>
+
+<p>
+The UK VAT calculator helps you quickly calculate Value Added Tax on goods and services.
+The standard VAT rate in the United Kingdom is 20%, which is applied to most products.
+</p>
+
+<p>
+To add VAT, multiply the original price by 1.2. To remove VAT from a gross price,
+divide it by 1.2 to get the net amount before tax.
+</p>
+
+<h2>UK VAT Formula</h2>
+
+<ul>
+<li>Net → Gross: <strong>Price × 1.2</strong></li>
+<li>Gross → Net: <strong>Price ÷ 1.2</strong></li>
+</ul>
+
+<h2>Why use this calculator?</h2>
+
+<ul>
+<li>Fast and accurate VAT calculations</li>
+<li>No signup required</li>
+<li>Works on mobile and desktop</li>
+<li>Uses standard UK tax rules</li>
+</ul>
+
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+<div class="container">
+
+<h2>VAT Calculator FAQ</h2>
+
+<div class="faq-item">
+<h3>What is the standard VAT rate in the UK?</h3>
+<p>The standard VAT rate is 20%.</p>
+</div>
+
+<div class="faq-item">
+<h3>Can I remove VAT from a price?</h3>
+<p>Yes, divide the total by 1.2.</p>
+</div>
+
+<div class="faq-item">
+<h3>Is this VAT calculator free?</h3>
+<p>Yes, it is completely free to use.</p>
+</div>
+
+</div>
+</section>
+
+<!-- SCRIPT -->
+<script>
+function addVAT() {
+ let amount = parseFloat(document.getElementById("amount").value);
+ let rate = parseFloat(document.getElementById("rate").value);
+
+ let result = amount + (amount * rate / 100);
+ document.getElementById("output").innerText =
+ "Price including VAT: £" + result.toFixed(2);
+}
+
+function removeVAT() {
+ let amount = parseFloat(document.getElementById("amount").value);
+ let rate = parseFloat(document.getElementById("rate").value);
+
+ let result = amount / (1 + rate / 100);
+ document.getElementById("output").innerText =
+ "Price excluding VAT: £" + result.toFixed(2);
+}
+</script>
+
 <footer class="footer">
 
     <div class="container footer-grid">

@@ -865,3 +865,20 @@ input:focus {
     color: #64748b;
     margin-bottom: 5px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+html {
+  scroll-behavior: smooth;
+}
