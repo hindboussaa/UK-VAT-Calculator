@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UK Income Tax Calculator (2026) | Calculate Salary Tax Easily</title>
+
+<meta name="description" content="Free UK Income Tax Calculator. Estimate your tax, net salary and take-home pay instantly for 2026 UK tax rates.">
+<meta name="robots" content="index, follow">
+
+<link rel="stylesheet" href="../style.css">
+
+</head>
+
+<body>
+
+<header class="topbar">
+    <div class="container topbar-inner">
+
+        <a class="brand" href="../index.html">
+            UK Calc Hub
+        </a>
+        <nav class="top-nav">
+            <a href="../index.html">Home</a>
+            <a href="vat-calculator.html">VAT</a>
+<a href="bmi-calculator.html">BMI</a>
+<a href="loan-calculator.html">Loan</a>
+<a href="age-calculator.html">Age</a>
+<a href="mortgage-calculator.html">Mortgage</a>
+<a href="percentage-calculator.html">Percent</a>
+<a href="compound-interest-calculator.html">Compound Interest</a>
+<a href="income-calculator.html">Income</a>
+<a href="salary-calculator.html">Salary</a>
+<a href="stamp-duty-calculator.html">Stamp Duty</a>
+
+
+        </nav>
+
+        <a class="cta" href="../index.html#tools">
+            All Tools
+        </a>
+
+    </div>
+</header>
+<section class="page-header">
+<div class="container">
+<h1>Income Tax Calculator UK</h1>
+<p>Calculate your UK income tax and take-home salary instantly.</p>
+</div>
+</section>
+
+<section class="calculator">
+<div class="container">
+<div class="calc-box">
+
+<h2>Tax Calculator</h2>
+
+<label>Annual Salary (£)</label>
+<input type="number" id="salary">
+
+<label>Tax Rate (%)</label>
+<input type="number" id="tax" value="20">
+
+<div class="buttons">
+<button onclick="calcTax()">Calculate</button>
+</div>
+
+<div class="result">
+<p id="output"></p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="content">
+<div class="container">
+<h2>How Income Tax Works</h2>
+<p>Income tax is calculated based on your yearly earnings in the UK.</p>
+</div>
+</section>
+
+<script>
+function calcTax(){
+ let salary = +document.getElementById("salary").value;
+ let tax = +document.getElementById("tax").value;
+
+ let taxAmount = salary * tax / 100;
+ let net = salary - taxAmount;
+
+ document.getElementById("output").innerHTML =
+ "Tax: £" + taxAmount.toFixed(2) + "<br>Net Salary: £" + net.toFixed(2);
+}
+</script>
+<footer class="footer">
+
+    <div class="container footer-grid">
+
+        <div>
+            <h3>UK Calc Hub</h3>
+            <p>
+                Free UK calculator tools for finance, health, and everyday use.
+                Fast, accurate and mobile friendly.
+            </p>
+        </div>
+
+        <div>
+            <h4>Calculators</h4>
+
+            <a href="/UK-VAT-Calculator/calculators/vat-calculator.html">VAT Calculator</a>
+            <a href="/UK-VAT-Calculator/calculators/bmi-calculator.html">BMI Calculator</a>
+            <a href="/UK-VAT-Calculator/calculators/loan-calculator.html">Loan Calculator</a>
+            <a href="/UK-VAT-Calculator/calculators/mortgage-calculator.html">Mortgage Calculator</a>
+            <a href="/UK-VAT-Calculator/calculators/percentage-calculator.html">Percentage Calculator</a>
+            <a href="/UK-VAT-Calculator/calculators/compound-interest-calculator.html">Compound Interest Calculator</a>
+            <a href="/UK-VAT-Calculator/calculators/income-calculator.html">Income Calculator</a>
+            <a href="/UK-VAT-Calculator/calculators/percentage-calculator.html">Percentage Calculator</a>
+            <a href="/UK-VAT-Calculator/calculators/salary-calculator.html">Salary Calculator</a>
+             <a href="/UK-VAT-Calculator/calculators/stamp-duty-calculator.html">Stamp Duty Calculator</a>
+
+
+
+        </div>
+
+        <div>
+            <h4>Company</h4>
+
+            <a href="/UK-VAT-Calculator/about.html">About</a>
+            <a href="/UK-VAT-Calculator/contact.html">Contact</a>
+            <a href="/UK-VAT-Calculator/privacy.html">Privacy Policy</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 UK Calc Hub — All rights reserved
+    </div>
+
+</footer>
+</body>
+</html>
