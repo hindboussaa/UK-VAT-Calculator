@@ -231,11 +231,15 @@ a{
 
 .seo h2{
     margin-bottom:15px;
+    padding :50px 
 }
 
 .seo p{
     color:#475569;
     margin-bottom:12px;
+    padding :5px ;
+    margin-left:50px;
+
 }
 
 /* =========================
