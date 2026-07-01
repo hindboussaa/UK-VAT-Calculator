@@ -24,7 +24,7 @@ body{
 
 /* CARD */
 .card{
-    max-width:520px;
+    max-width:700px;
     margin:40px auto;
     background:white;
     padding:25px;
@@ -101,7 +101,38 @@ input:focus{
     color:#444;
 }
 </style>
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a healthy BMI in the UK?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A healthy BMI is between 18.5 and 24.9 for most adults."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is BMI accurate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BMI is a useful general guide but does not directly measure body fat or muscle."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can athletes have a high BMI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, athletes may have a higher BMI due to muscle mass rather than fat."
+      }
+    }
+  ]
+}
+</script>
 </head>
 
 <body>
@@ -145,20 +176,6 @@ input:focus{
     <h1>BMI Calculator</h1>
 </div>
 
-<!-- CALCULATOR -->
-<div class="card">
-
-    <input id="height" type="number" placeholder="Height (cm)" oninput="calcBMI()">
-    <input id="weight" type="number" placeholder="Weight (kg)" oninput="calcBMI()">
-
-    <div class="result">
-        <h3>Your BMI</h3>
-        <div id="bmiResult" class="big">0</div>
-
-        <div id="status" class="status">Enter values</div>
-    </div>
-
-</div>
 
 <!-- SEO DESCRIPTION -->
 <section class="seo">
@@ -175,6 +192,91 @@ input:focus{
         This tool gives instant results so you can understand your health status quickly.
     </p>
 
+
+    <h2>BMI Calculator UK Tool</h2>
+<p>
+This free BMI calculator helps you quickly check your Body Mass Index based on UK health standards.
+It is commonly used to estimate whether your weight is healthy for your height.
+</p>
+
+</section>
+
+<!-- CALCULATOR -->
+<div class="card">
+
+    <label for="height">Height (cm)</label>
+<input id="height" type="number" placeholder="Height (cm)" oninput="calcBMI()">
+
+<label for="weight">Weight (kg)</label>
+<input id="weight" type="number" placeholder="Weight (kg)" oninput="calcBMI()">
+
+    <div class="result">
+        <h3>Your BMI</h3>
+        <div id="bmiResult" class="big">0</div>
+
+        <div id="status" class="status">Enter values</div>
+    </div>
+
+</div>
+
+
+
+
+
+<section class="seo">
+
+<h2>BMI Chart (UK Health Categories)</h2>
+
+<table style="width:100%; border-collapse:collapse; margin-top:10px;">
+    <tr>
+        <th style="text-align:left; padding:10px;">BMI Range</th>
+        <th style="text-align:left; padding:10px;">Category</th>
+    </tr>
+    <tr>
+        <td style="padding:10px;">Below 18.5</td>
+        <td>Underweight</td>
+    </tr>
+    <tr>
+        <td style="padding:10px;">18.5 – 24.9</td>
+        <td>Normal weight</td>
+    </tr>
+    <tr>
+        <td style="padding:10px;">25 – 29.9</td>
+        <td>Overweight</td>
+    </tr>
+    <tr>
+        <td style="padding:10px;">30+</td>
+        <td>Obese</td>
+    </tr>
+</table>
+
+</section>
+
+
+<section class="seo">
+<section class="faq">
+
+<h2>FAQ – BMI Calculator UK</h2>
+<div class="faq-item">
+<h3>What is a healthy BMI in the UK?</h3>
+<p>A healthy BMI is between 18.5 and 24.9 for most adults.</p>
+</div>
+
+<div class="faq-item">
+<h3>Is BMI accurate?</h3>
+<p>BMI is a useful general guide, but it does not measure muscle or body fat directly.</p>
+</div>
+
+<div class="faq-item">
+<h3>Can athletes have a high BMI?</h3>
+<p>Yes. Muscular people may have a higher BMI even if they are not overweight.</p>
+</div>
+
+<div class="faq-item">
+<h3>How often should I check my BMI?</h3>
+<p>Checking every few months is usually enough unless you are actively changing weight.</p>
+</div>
+</section>
 </section>
 
 <script>

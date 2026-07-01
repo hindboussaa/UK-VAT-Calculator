@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,26 +13,26 @@
 </head>
 
 <body>
+
 <header class="topbar">
     <div class="container topbar-inner">
 
         <a class="brand" href="../index.html">
             UK Calc Hub
         </a>
+
         <nav class="top-nav">
             <a href="../index.html">Home</a>
             <a href="vat-calculator.html">VAT</a>
-<a href="bmi-calculator.html">BMI</a>
-<a href="loan-calculator.html">Loan</a>
-<a href="age-calculator.html">Age</a>
-<a href="mortgage-calculator.html">Mortgage</a>
-<a href="percentage-calculator.html">Percent</a>
-<a href="compound-interest-calculator.html">Compound Interest</a>
-<a href="income-calculator.html">Income</a>
-<a href="salary-calculator.html">Salary</a>
-<a href="stamp-duty-calculator.html">Stamp Duty</a>
-
-
+            <a href="bmi-calculator.html">BMI</a>
+            <a href="loan-calculator.html">Loan</a>
+            <a href="age-calculator.html">Age</a>
+            <a href="mortgage-calculator.html">Mortgage</a>
+            <a href="percentage-calculator.html">Percent</a>
+            <a href="compound-interest-calculator.html">Compound Interest</a>
+            <a href="income-calculator.html">Income</a>
+            <a href="salary-calculator.html">Salary</a>
+            <a href="stamp-duty-calculator.html">Stamp Duty</a>
         </nav>
 
         <a class="cta" href="../index.html#tools">
@@ -40,10 +41,13 @@
 
     </div>
 </header>
+
 <section class="page-header">
 <div class="container">
+
 <h1>Stamp Duty Calculator</h1>
 <p>Calculate UK property stamp duty instantly.</p>
+
 <div id="result">
   <h2 id="taxAmount">£0</h2>
 
@@ -52,21 +56,43 @@
     For guidance only – not financial advice.
   </p>
 </div>
+
 </div>
 </section>
 
+<section class="seo-content">
+    <h2>What is Stamp Duty?</h2>
+    <p>
+        Stamp Duty Land Tax (SDLT) is a tax paid when purchasing property
+        or land in England and Northern Ireland above the applicable
+        threshold. The amount you pay depends on the purchase price and
+        your circumstances.
+    </p>
+</section>
 
+<section class="seo-content">
+    <h2>How is Stamp Duty Calculated?</h2>
+    <p>
+        SDLT is calculated using tax bands. Different portions of the
+        property price are taxed at different rates.
+    </p>
+</section>
 
-
-
-
+<section class="seo-content">
+    <h2>Example Calculation</h2>
+    <p>
+        If you purchase a property for £400,000, Stamp Duty is only paid
+        on the part above the threshold.
+    </p>
+</section>
 
 <section class="calculator">
 <div class="container">
+
 <div class="calc-box">
 
 <h2>Property Price</h2>
-<input type="number" id="price">
+<input type="number" id="price" placeholder="Enter property price">
 
 <div class="buttons">
 <button onclick="calcSDLT()">Calculate</button>
@@ -77,26 +103,59 @@
 </div>
 
 </div>
+
 </div>
 </section>
 
 <script>
 function calcSDLT(){
- let price = +document.getElementById("price").value;
+ let price = Number(document.getElementById("price").value);
  let tax = 0;
 
- if(price > 250000) tax = price * 0.05;
+ if(price > 250000){
+    tax = (price - 250000) * 0.05;
+ }
 
  document.getElementById("output").innerText =
  "Stamp Duty: £" + tax.toFixed(2);
 }
 </script>
 
+<section class="faq">
+<div class="container">
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq-item">
+<h3>Who pays Stamp Duty?</h3>
+<p>
+Most buyers purchasing property in England and Northern Ireland may need
+to pay Stamp Duty depending on the price.
+</p>
+</div>
+
+<div class="faq-item">
+<h3>Do first-time buyers pay Stamp Duty?</h3>
+<p>
+Some first-time buyers may qualify for relief depending on UK rules.
+</p>
+</div>
+
+<div class="faq-item">
+<h3>Is this calculator accurate?</h3>
+<p>
+It is an estimate and should be used as a guide only.
+</p>
+</div>
+
+</div>
+</section>
+
 <footer class="footer">
 
     <div class="container footer-grid">
 
-        <div>
+        <div class="footer-col">
             <h3>UK Calc Hub</h3>
             <p>
                 Free UK calculator tools for finance, health, and everyday use.
@@ -104,30 +163,27 @@ function calcSDLT(){
             </p>
         </div>
 
-        <div>
+        <div class="footer-col">
             <h4>Calculators</h4>
 
-            <a href="/UK-VAT-Calculator/calculators/vat-calculator.html">VAT Calculator</a>
-            <a href="/UK-VAT-Calculator/calculators/bmi-calculator.html">BMI Calculator</a>
-            <a href="/UK-VAT-Calculator/calculators/loan-calculator.html">Loan Calculator</a>
-            <a href="/UK-VAT-Calculator/calculators/mortgage-calculator.html">Mortgage Calculator</a>
-            <a href="/UK-VAT-Calculator/calculators/percentage-calculator.html">Percentage Calculator</a>
-            <a href="/UK-VAT-Calculator/calculators/compound-interest-calculator.html">Compound Interest Calculator</a>
-            <a href="/UK-VAT-Calculator/calculators/income-calculator.html">Income Calculator</a>
-            <a href="/UK-VAT-Calculator/calculators/percentage-calculator.html">Percentage Calculator</a>
-            <a href="/UK-VAT-Calculator/calculators/salary-calculator.html">Salary Calculator</a>
-             <a href="/UK-VAT-Calculator/calculators/stamp-duty-calculator.html">Stamp Duty Calculator</a>
-
-
+            <a href="vat-calculator.html">VAT Calculator</a>
+            <a href="bmi-calculator.html">BMI Calculator</a>
+            <a href="loan-calculator.html">Loan Calculator</a>
+            <a href="mortgage-calculator.html">Mortgage Calculator</a>
+            <a href="percentage-calculator.html">Percentage Calculator</a>
+            <a href="compound-interest-calculator.html">Compound Interest Calculator</a>
+            <a href="income-calculator.html">Income Calculator</a>
+            <a href="salary-calculator.html">Salary Calculator</a>
+            <a href="stamp-duty-calculator.html">Stamp Duty Calculator</a>
 
         </div>
 
-        <div>
+        <div class="footer-col">
             <h4>Company</h4>
 
-            <a href="/UK-VAT-Calculator/about.html">About</a>
-            <a href="/UK-VAT-Calculator/contact.html">Contact</a>
-            <a href="/UK-VAT-Calculator/privacy.html">Privacy Policy</a>
+            <a href="../about.html">About</a>
+            <a href="../contact.html">Contact</a>
+            <a href="../privacy.html">Privacy Policy</a>
         </div>
 
     </div>
@@ -137,5 +193,6 @@ function calcSDLT(){
     </div>
 
 </footer>
+
 </body>
 </html>

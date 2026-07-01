@@ -81,6 +81,51 @@
 </div>
 </section>
 
+<section class="content">
+
+<div class="container">
+
+<h2>UK Income Tax Calculator</h2>
+
+<p>
+Our free UK Income Tax Calculator estimates how much income tax you may pay each year based on current UK tax bands. Enter your annual salary to estimate your tax liability and annual take-home pay.
+</p>
+
+<h2>Income Tax Bands</h2>
+
+<table>
+
+<tr>
+<th>Taxable Income</th>
+<th>Rate</th>
+</tr>
+
+<tr>
+<td>Up to £12,570</td>
+<td>0%</td>
+</tr>
+
+<tr>
+<td>£12,571 – £50,270</td>
+<td>20%</td>
+</tr>
+
+<tr>
+<td>£50,271 – £125,140</td>
+<td>40%</td>
+</tr>
+
+<tr>
+<td>Over £125,140</td>
+<td>45%</td>
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
 <script>
 function calcTax(){
  let salary = +document.getElementById("salary").value;
@@ -93,6 +138,26 @@ function calcTax(){
  "Tax: £" + taxAmount.toFixed(2) + "<br>Net Salary: £" + net.toFixed(2);
 }
 </script>
+<section class="content">
+
+<div class="container">
+<section class="faq">
+<h2>Frequently Asked Questions</h2>
+<div class="faq-item">
+<h3>How is UK income tax calculated?</h3>
+<p>Income tax is charged at different rates depending on how much of your salary falls into each tax band.</p>
+</div>
+<div class="faq-item">
+<h3>Does this calculator include National Insurance?</h3>
+<p>No. This calculator estimates income tax only. National Insurance and pension deductions are not included.</p>
+</div>
+<div class="faq-item">
+<h3>Who can use this calculator?</h3>
+<p>This calculator is suitable for estimating income tax for most employees in England, Wales and Northern Ireland.</p>
+</div>
+</div>
+
+</section>
 <footer class="footer">
 
     <div class="container footer-grid">
